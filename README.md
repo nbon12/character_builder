@@ -18,4 +18,7 @@ The system tracks attendance of characters. After each event, each character gai
 7. Run the development server `python manage.py runserver`
 8. Go to localhost:8000 in your browser, you should see a web app running.
 
+## Deployment
+1. Run `docker-compose up`. This should build the two containers (web server and database).
+
 
