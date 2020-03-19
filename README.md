@@ -6,6 +6,8 @@ The skill builder lets LARP admins define skill dependencies on other skills, de
 Users can build characters with a pool of character points. The system remembers how many skill points you have.
 The system tracks attendance of characters. After each event, each character gains an additional skill point to spend.
 
+This LARP builder is specificially designed for the Lands of Exile LARP at landsofexile.com
+
 # Developer Instructions
 
 ## Installation
