@@ -1,5 +1,10 @@
 # character_builder
-Character Builder System for the Lands of Exile LARP
+Character Builder System for LARP games.
+
+This character builder allows you to construct a character for your favorite LARP.
+The skill builder lets LARP admins define skill dependencies on other skills, descriptions, cost.
+Users can build characters with a pool of character points. The system remembers how many skill points you have.
+The system tracks attendance of characters. After each event, each character gains an additional skill point to spend.
 
 # Developer Instructions
 
