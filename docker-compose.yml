@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME-postgres}
+      - POSTGRES_USER=${DATABASE_USER-postgres}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD-postgres}
+  web:
+    build: .
+    command: pipenv run python ./character_builder/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_SERVICE_NAME=POSTGRES_SQL
+      - DATABASE_ENGINE=postgresql
+      - DATABASE_NAME=${DATABASE_NAME-postgres}
+      - POSTGRES_SQL_SERVICE_HOST=db
+      - POSTGRES_SQL_SERVICE_PORT=5432  
