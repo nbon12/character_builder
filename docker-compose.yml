@@ -2,13 +2,14 @@ version: '3'
 
 services:
   db:
+    container_name: character_builder_db
     image: postgres
     environment:
       - POSTGRES_DB=${DATABASE_NAME-postgres}
       - POSTGRES_USER=${DATABASE_USER-postgres}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD-postgres}
     ports:
-      - "5432:5432"
+      - "15432:5432"
   web:
     build: .
     command: pipenv run python ./character_builder/manage.py runserver 0.0.0.0:8000

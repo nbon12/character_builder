@@ -8,3 +8,4 @@ RUN pip install pipenv
 RUN pipenv install --dev
 
 COPY . /code/
+ENTRYPOINT ["/code/docker-entrypoint.sh"]
