@@ -1,17 +1,21 @@
 #!/bin/bash
-
+ARG SECRET_KEY
+RUN mkdir /code
+ADD Pipfile /code/Pipfle
+ADD Pipfile.lock /code/Pipfile.lock
+WORKDIR /code
 # Collect static files
 echo "Collect static files"
+echo "begin ls"
 ls
-#pipenv install --dev
-pipenv shell
-#python ./character_builder/manage.py collectstatic --noinput
-
-# Apply database migrations
-echo "Apply database migrations"
-#python ./character_builder/manage.py migrate
-
-# Start server
+echo "end ls"
+#echo "start the pipenv shell"
+#pipenv shell
+#cat Pipfile
+echo "pipenv install begin"
+pipenv install --system
+echo "pipenv install end"
+#export SECRET_KEY=$SECRET_KEY
 echo "Starting server"
 
-#python ./character_builder/manage.py runserver 0.0.0.0:8000
+python ./character_builder/manage.py runserver 0.0.0.0:8000
