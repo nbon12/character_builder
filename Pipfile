@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 django-environ = "*"
 psycopg2-binary = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

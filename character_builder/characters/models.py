@@ -4,14 +4,14 @@ from django.db import models
 
 
 class Skill(models.Model):
-    cost = models.IntegerField(default=2)
     description = models.TextField(null=True)
     prerequisite = models.ForeignKey('self', null=True, on_delete=models.SET_NULL)
 class Subskill(models.Model):
     parent_skill = models.ForeignKey(Skill, null=False, on_delete=models.CASCADE)
+    cost = models.IntegerField(default=2, null=True)
 class Character(models.Model):
     full_name = models.CharField(max_length=200)
     total_cp = models.IntegerField(null=True)
-    skills = models.ManyToManyField(Skill)
+    skills = models.ManyToManyField(Skill, null=True, blank=True)
 class Event(models.Model):
     characters = models.ForeignKey(Character, null=True, on_delete=models.SET_NULL)

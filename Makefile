@@ -210,7 +210,7 @@ check-manifest:
 	./.travis/check_manifest.sh
 
 run-migrations:
-	$(DJANGO_MANAGE) migrate_schemas
+	$(DJANGO_MANAGE) migrate
 
 serve:
 	$(DJANGO_MANAGE) runserver
