@@ -24,6 +24,7 @@ This LARP builder is specificially designed for the Lands of Exile LARP at lands
 11. go to localhost:8080/admin and enter the credentials you used.
 
 ## Deployment
+1. Set the environment variables. The required ones are found in the .env file with default values, the SECRET_KEY should be changed.
 1. Run `docker-compose up`. This should build the two containers (web server and database).
 
 
