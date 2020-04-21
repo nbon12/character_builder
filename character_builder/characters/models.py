@@ -13,7 +13,7 @@ class Skill(models.Model):
         return '%s' % (self.name,)
 
 class Character(models.Model):
-    full_name = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=200, unique=True)
     total_cp = models.IntegerField(null=True)
     skills = models.ManyToManyField(Skill, null=True, blank=True)
 
