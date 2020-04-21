@@ -7,14 +7,14 @@ from rest_framework import serializers
 class CharacterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Character
-        fields = ['full_name', 'total_cp', 'skills']
+        fields = ['full_name', 'total_cp', 'subskills']
 
 class SkillSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Skill
-        fields = ['cost', 'description', 'prerequisite']
+        fields = ['name', 'description', 'prerequisite']
 
 class SubskillSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Subskill
-        fields = ['parent_skill']
+        fields = ['parent_skill', 'cost']

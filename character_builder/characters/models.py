@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Skill(models.Model):
+    name = models.TextField()
     description = models.TextField(null=True)
     prerequisite = models.ForeignKey('self', null=True, on_delete=models.SET_NULL)
 class Subskill(models.Model):
@@ -12,6 +13,6 @@ class Subskill(models.Model):
 class Character(models.Model):
     full_name = models.CharField(max_length=200)
     total_cp = models.IntegerField(null=True)
-    skills = models.ManyToManyField(Skill, null=True, blank=True)
+    subskills = models.ManyToManyField(Subskill, null=True, blank=True)
 class Event(models.Model):
     characters = models.ForeignKey(Character, null=True, on_delete=models.SET_NULL)
