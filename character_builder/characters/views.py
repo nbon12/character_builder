@@ -26,4 +26,5 @@ class SkillDetailView(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
 
 
+
     
