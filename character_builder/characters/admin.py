@@ -1,6 +1,6 @@
-from characters.models import Character
-from characters.models import Event
-from characters.models import Skill
+from characters.models.character import Character
+from characters.models.event import Event
+from characters.models.skill import Skill
 from django.contrib import admin
 
 # Register your models here.

@@ -1,10 +1,9 @@
-from characters.models import Character
-from characters.models import Event
-from characters.models import Skill
+from characters.models.character import Character
+from characters.models.event import Event
+from characters.models.skill import Skill
 from characters.serializer import CharacterSerializer
 from characters.serializer import EventSerializer
 from characters.serializer import SkillSerializer
-from django.http import HttpResponse
 from rest_framework import viewsets
 
 
@@ -13,11 +12,6 @@ class CharacterDetailView(viewsets.ModelViewSet):
     model = Character
     serializer_class = CharacterSerializer
     queryset = Character.objects.all()
-
-
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, world. You're at the Characters index")
 
 
 class SkillDetailView(viewsets.ModelViewSet):
