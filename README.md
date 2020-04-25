@@ -27,5 +27,3 @@ This LARP builder is specificially designed for the Lands of Exile LARP at lands
 1. Set the environment variables by renaming .env.example to .env
 2. Set the SECRET_KEY environment variable `export SECRET_KEY=...`
 3. Run `docker-compose up`. This should build the two containers (web server and database).
-
-

@@ -13,6 +13,7 @@ psycopg2-binary = "*"
 djangorestframework = "*"
 graphene = "*"
 graphene-django = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.7"

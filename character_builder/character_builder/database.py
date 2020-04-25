@@ -2,10 +2,6 @@
 import os
 
 from django.conf import settings
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
-from django.contrib.postgres.fields.jsonb import KeyTransform
-from django.db.models import DecimalField
-from django.db.models.aggregates import Func
 
 from .env import ENVIRONMENT
 
@@ -50,4 +46,3 @@ def config():
 
     database_cert = ENVIRONMENT.get_value("DATABASE_SERVICE_CERT", default=None)
     return _cert_config(db_config, database_cert)
-
