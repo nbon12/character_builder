@@ -1,3 +1,6 @@
 {
-    "python.pythonPath" : "/root/.local/share/virtualenvs/workspace-dqq3IVyd/bin/python"
+    "python.pythonPath": "/root/.local/share/virtualenvs/workspace-dqq3IVyd/bin/python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true
 }

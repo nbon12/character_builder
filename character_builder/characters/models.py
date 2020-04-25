@@ -35,4 +35,4 @@ class Character(models.Model):
 class Event(models.Model):
     title = models.TextField()
     date = models.DateTimeField()
-    characters = models.ForeignKey(Character, null=True, on_delete=models.SET_NULL)
+    characters = models.ManyToManyField(Character, null=True, blank=True)

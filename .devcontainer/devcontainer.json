@@ -1,36 +1,31 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/python-3-postgres
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
-// You can also update the VARIANT arg in docker-compose.yml to pick a Python version: 3, 3.8, 3.7, 3.6 
 {
-	"name": "Python 3 & PostgreSQL",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"name": "Existing Docker Compose (Extend)",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "characterbuilder",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/usr/local/bin/python",
-		//"python.pythonPath": "/Users/nbonilla/.local/share/virtualenvs/character_builder-eUk1L_m-/bin/python",
-		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
-		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-		"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-		"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-		"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-		"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-		"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-		"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-		"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-		"python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+		"terminal.integrated.shell.linux": null
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python"
-	],
+	"extensions": [],
 
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
 	// "runServices": [],
@@ -38,10 +33,9 @@
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip install --user -r requirements.txt",
-
+	// Uncomment the next line to run commands after the container is created - for example installing git.
+	// "postCreateCommand": "apt-get update && apt-get install -y git",
+	"postCreateCommand" : "pipenv install --dev"
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode"
-	"postCreateCommand": "pipenv install --dev"
 }
