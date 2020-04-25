@@ -41,7 +41,7 @@ def config():
         "USER": ENVIRONMENT.get_value("DATABASE_USER", default="postgres"),
         "PASSWORD": ENVIRONMENT.get_value("DATABASE_PASSWORD", default="postgres"),
         "HOST": ENVIRONMENT.get_value(f"{service_name}_SERVICE_HOST", default="localhost"),
-        "PORT": ENVIRONMENT.get_value(f"{service_name}_SERVICE_PORT", default=15432),
+        "PORT": ENVIRONMENT.get_value(f"{service_name}_SERVICE_PORT", default=5432),
     }
 
     database_cert = ENVIRONMENT.get_value("DATABASE_SERVICE_CERT", default=None)
