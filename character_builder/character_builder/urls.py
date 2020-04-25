@@ -19,6 +19,6 @@ from django.urls import path
 
 urlpatterns = [
     path("characters/", include("characters.urls"), name="characters-list"),
-    path("admin/", admin.site.urls),
+    path("plot/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),  # noqa E501
 ]
