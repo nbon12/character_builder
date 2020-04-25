@@ -6,7 +6,7 @@ ROOT_DIR = environ.Path(__file__) - 3
 ENVIRONMENT = environ.Env()
 
 # .env file, should load only in development environment
-READ_DOT_ENV_FILE = ENVIRONMENT.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+READ_DOT_ENV_FILE = ENVIRONMENT.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
 
 if READ_DOT_ENV_FILE:
     # Operating System Environment variables have precedence over variables

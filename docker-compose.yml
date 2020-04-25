@@ -9,9 +9,9 @@ services:
       - POSTGRES_USER=${DATABASE_USER-postgres}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD-postgres}
     ports:
-      - "15432:5432"
+     # - "15432:5432"
+      - "5432:5432"
   characterbuilder:
-    name: characterbuilder
     env_file:
       - .env
     build: .

@@ -35,14 +35,17 @@ RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
 # [Optional] Uncomment this section to install additional packages.
 #
 ENV DEBIAN_FRONTEND=noninteractive
+#COPY ./Pipfile /
+#COPY ./Pipfile.lock /
+
+
 RUN apt-get update \
    && apt-get -y install --no-install-recommends python3-pip \
    && pip install pipenv \
-   #
    # Clean up
    && apt-get autoremove -y \
    && apt-get clean -y \
    && rm -rf /var/lib/apt/lists/* 
-   
+#RUN pipenv install --system
 # ENV DEBIAN_FRONTEND=dialog
 
