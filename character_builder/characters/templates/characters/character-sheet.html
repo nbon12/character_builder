@@ -4,6 +4,45 @@
     {% if user.is_authenticated %}
     <h2>Character Sheet for {{ user.username }}</h2>
     <h3>Character Name: {{ character.full_name }}</h3>
+    <p>Character Points Spent: {{character.cp_spent}}</p>
+    <p>Character Points Remaining: {{character.cp_remaining}}</p>
+    <p>Events Attended: {{character.events_attended}}</p>
+
+    <h3>Skills</h3>
+    <ul>
+        {% for skill in skills%}
+        <li>{{skill.name}} - {{skill.cost}} CP
+            <input type=checkbox>
+            <ul>
+                {% for skill in skill.child_skills %}
+                <li>{{skill.name}} - {{skill.cost}} CP
+                </li>
+                {% endfor %}
+            </ul>
+
+        </li>
+        {% endfor %}
+      </ul>
+    <h4>Warrior</h4>
+
+    <h4>Mage</h4>
+
+    <h4>Rogue</h4>
+
+    <h4>Alchemist</h4>
+
+    <h4>Ritualist</h4>
+
+    <h4>Blood Mage <span>(must be acquired in game)</span></h4>
+
+    <h3>Purchased Skills</h3>
+    <ul>
+        {% for skill in my_skills%}
+        <li>{{skill.name}} - {{skill.cost}} CP
+        </li>
+        {% endfor %}
+    </ul>
+
     {% else %}
     <a href="{% provider_login_url 'google' %}">Login with Google</a>
     {% endif %}

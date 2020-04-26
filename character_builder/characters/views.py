@@ -35,5 +35,7 @@ def index(request):
 
 def character_sheet(request, character_id):
     character = Character.objects.filter(id=character_id)[0]
-    context = {"character": character}
+    parent_skills = Skill.objects.filter(prerequisite=None)
+    my_skills = Skill.objects.filter(character=character)
+    context = {"character": character, "skills": parent_skills, "my_skills": my_skills}
     return render(request, "characters/character-sheet.html", context)
