@@ -10,3 +10,4 @@ admin.site.register(Event)
 admin.site.site_header = "Character Builder Administration"
 admin.site.site_title = "Character Builder Administration"
 admin.site.index_title = "Admin Character Builder"
+# admin.site.register()

@@ -1,12 +1,14 @@
-from django.db import models
 from characters.models.event import Event
 from characters.models.skill import Skill
+from django.conf import settings
+from django.db import models
 
 
 class Character(models.Model):
     full_name = models.CharField(max_length=200, unique=True)
     starting_cp = models.IntegerField(null=True)
     skills = models.ManyToManyField(Skill, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     @property
     def cp_spent(self):

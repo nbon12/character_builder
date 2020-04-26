@@ -4,6 +4,7 @@ from characters.models.skill import Skill
 from characters.serializer import CharacterSerializer
 from characters.serializer import EventSerializer
 from characters.serializer import SkillSerializer
+from django.shortcuts import render
 from rest_framework import viewsets
 
 
@@ -24,3 +25,10 @@ class EventView(viewsets.ModelViewSet):
     model = Event
     serializer_class = EventSerializer
     queryset = Event.objects.all()
+
+
+def index(request):
+    return "HIYA"
+    your_characters_list = Character.objects.filter(character__user_id=request.user.id)
+    context = {"your_characters_list": your_characters_list}
+    return render(request, "characters/index.html", context)

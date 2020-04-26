@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("characters/", include("characters.urls"), name="characters-list"),
     path("plot/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),  # noqa E501
+    path("accounts/", include("allauth.urls")),
+    path("", TemplateView.as_view(template_name="characters/index.html")),
 ]

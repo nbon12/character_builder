@@ -48,6 +48,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "characters",
     "rest_framework",
+    "django.contrib.sites",  # For Google Login
+    "allauth",  # <-- For Google Login
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +133,11 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 REST_FRAMEWORK = {"DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination"}
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 2
+SOCIALACCOUNT_PROVIDERS = {"google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}}
