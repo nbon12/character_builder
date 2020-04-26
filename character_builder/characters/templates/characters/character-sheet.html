@@ -1,0 +1,11 @@
+{% load socialaccount %}
+<html>
+    <body>
+    {% if user.is_authenticated %}
+    <h2>Character Sheet for {{ user.username }}</h2>
+    <h3>Character Name: {{ character.full_name }}</h3>
+    {% else %}
+    <a href="{% provider_login_url 'google' %}">Login with Google</a>
+    {% endif %}
+    </body>
+</html>

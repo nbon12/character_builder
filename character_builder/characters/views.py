@@ -28,7 +28,12 @@ class EventView(viewsets.ModelViewSet):
 
 
 def index(request):
-    return "HIYA"
-    your_characters_list = Character.objects.filter(character__user_id=request.user.id)
+    your_characters_list = Character.objects.filter(user_id=request.user.id)
     context = {"your_characters_list": your_characters_list}
     return render(request, "characters/index.html", context)
+
+
+def character_sheet(request, character_id):
+    character = Character.objects.filter(id=character_id)[0]
+    context = {"character": character}
+    return render(request, "characters/character-sheet.html", context)

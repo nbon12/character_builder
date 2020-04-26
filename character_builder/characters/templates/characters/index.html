@@ -12,7 +12,12 @@
   {% endif %}
 
   {% if user.is_authenticated %}
-  <p>Welcome, {{ your_characters_list }}!</p>
+  <p>Your Characters:</p>
+  <ul>
+    {% for character in your_characters_list%}
+    <li><a href="/character-sheet/{{character.id}}">{{character.full_name}}</a></li>
+    {% endfor %}
+  </ul>
   {% endif %}
 
 
