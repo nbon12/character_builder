@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    "mptt",
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "character_builder.urls"
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    os.path.join(SETTINGS_PATH, 'templates'),
+)
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -83,16 +87,17 @@ TEMPLATES = [
     },
     {
         "BACKEND": "django.template.backends.jinja2.Jinja2",
-        "DIRS": [],
+        "NAME": "Jinja2",
+        "DIRS": [os.path.join(BASE_DIR, 'characters/templates')],
         "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-            ]
-        },
+        # "OPTIONS": {
+        #     "context_processors": [
+        #         "django.template.context_processors.debug",
+        #         "django.template.context_processors.request",
+        #         "django.contrib.auth.context_processors.auth",
+        #         "django.contrib.messages.context_processors.messages",
+        #     ]
+        # },
     },
 ]
 

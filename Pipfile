@@ -16,6 +16,7 @@ graphene-django = "*"
 pre-commit = "*"
 django-allauth = "*"
 jinja2 = "*"
+django-mptt = "*"
 
 [requires]
 python_version = "3.7"

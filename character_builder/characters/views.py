@@ -4,6 +4,7 @@ from characters.models.skill import Skill
 from characters.serializer import CharacterSerializer
 from characters.serializer import EventSerializer
 from characters.serializer import SkillSerializer
+from django.template.loader import render_to_string
 from django.shortcuts import render
 from rest_framework import viewsets
 

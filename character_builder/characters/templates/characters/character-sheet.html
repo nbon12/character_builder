@@ -1,4 +1,4 @@
-{% load socialaccount %}
+{% load mptt_tags %}
 <html>
     <body>
     {% if user.is_authenticated %}
@@ -10,18 +10,14 @@
 
     <h3>Skills</h3>
     <ul>
-        {% for skill in skills%}
+        {% recursetree skills%}
         <li>{{skill.name}} - {{skill.cost}} CP
-            <input type=checkbox>
-            <ul>
-                {% for skill in skill.child_skills %}
-                <li>{{skill.name}} - {{skill.cost}} CP
-                </li>
-                {% endfor %}
-            </ul>
+            {% if skill.child_skills  %}
+                {{ children }}
+            {% endif %}
 
         </li>
-        {% endfor %}
+        {% endrecursetree %}
       </ul>
     <h4>Warrior</h4>
 
@@ -43,8 +39,6 @@
         {% endfor %}
     </ul>
 
-    {% else %}
-    <a href="{% provider_login_url 'google' %}">Login with Google</a>
     {% endif %}
     </body>
 </html>
