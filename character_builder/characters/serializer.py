@@ -14,7 +14,7 @@ class CharacterSerializer(serializers.HyperlinkedModelSerializer):
 class SkillSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Skill
-        fields = ["name", "description", "prerequisite", "cost"]
+        fields = ["name", "description", "parent", "cost"]
 
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):

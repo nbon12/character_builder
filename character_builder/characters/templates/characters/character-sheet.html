@@ -10,12 +10,13 @@
 
     <h3>Skills</h3>
     <ul>
-        {% recursetree skills%}
-        <li>{{skill.name}} - {{skill.cost}} CP
-            {% if skill.child_skills  %}
-                {{ children }}
+        {% recursetree skills %}
+        <li>{{node.name}} - {{node.cost}} CP
+            {% if not node.is_leaf_node %}
+            <ul class="children">
+                {{children}}
+            </ul>
             {% endif %}
-
         </li>
         {% endrecursetree %}
       </ul>
